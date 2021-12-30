@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main class="main-content">
+    <section class="main-products">
+      <div class="container products-container">
+        <aside class="sidebar-wrapper">
+          <h2>Filter fruits</h2>
+          <form action="/" method="post">
+          <div class="filter-wrapper">
+            <span class="filter-title">Type</span>
+            <% if (showLinks.type === true) { %>
+            <div class="filter-list fresh-list">
+              <a class="filter-link active-link" data-type="fresh">
+                <span class="filter-check">
+                <span class="filter-label">Fresh</span>
+              </a>
+              <a class="filter-link" data-type="frozen">
+                <span class="filter-check"></span>
+                <span class="filter-label">Frozen</span>
+              </a>
+              <a class="filter-link" data-type="dried">
+                <span class="filter-check"></span>
+                <span class="filter-label">Dried</span>
+              </a>
+            </div>
+            <% } else { %>
+            <div class="filter-list fresh-list">
+              <% if (active.includes('fresh')) { %>
+              <p class="filter-link active" data-type="fresh">
+                <span>Fresh</span>
+              </p>
+            <% } else { %>
+              <p class="filter-link" data-type="fresh">
+                <span>Fresh</span>
+              </p>
+              <% } %>
+              <% if (active.includes('frozen')) { %>
+              <p class="filter-link active" data-type="frozen">
+                <span>Frozen</span>
+              </p>
+              <% } else { %>
+                <p class="filter-link" data-type="frozen">
+                  <span>Frozen</span>
+                </p>
+              <% } %>
+              <% if (active.includes('dried')) { %>
+              <p class="filter-link active" data-type="dried">
+                <span>Dried</span>
+              </p>
+              <% } else { %>
+                <p class="filter-link" data-type="dried">
+                  <span>Dried</span>
+                </p>
+              <% } %>
+            </div>
+            <% } %>
+          </div>
+          <% if (showLinks.season === true) { %>
+          <div class="filter-wrapper">
+            <span class="filter-title">Season</span>
+            <div class="filter-list frozen-list">
+              <a class="filter-link" data-season="spring">
+                <span class="filter-label">Spring</span>
+              </a>
+              <a class="filter-link" data-season="summer">
+                <span class="filter-label">Summer</span>
+              </a>
+              <a class="filter-link" data-season="fall">
+                <span class="filter-label">Fall</span>
+              </a>
+              <a class="filter-link" data-season="winter">
+                <span class="filter-label">Winter</span>
+              </a>
+            </div>
+          </div>
+          <% } else { %>
+            <div class="filter-wrapper">
+              <span class="filter-title">Season</span>
+              <div class="filter-list frozen-list">
+                <% if (active.includes('spring')) {%> 
+                <p class="filter-link active" data-season="spring">
+                  <span class="filter-label">Spring</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-season="spring">
+                    <span class="filter-label">Spring</span>
+                  </p>
+                <% }%>
+                <% if (active.includes('summer')) { %>
+                <p class="filter-link active" data-season="summer">
+                  <span class="filter-label">Summer</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-season="summer">
+                    <span class="filter-label">Summer</span>
+                  </p>
+                <% }%>
+                <% if (active.includes('fall')) { %>
+                <p class="filter-link active" data-season="fall">
+                  <span class="filter-label">Fall</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-season="fall">
+                    <span class="filter-label">Fall</span>
+                  </p>
+                <% }%>
+                <% if (active.includes('winter')) { %>
+                <p class="filter-link active" data-season="winter">
+                  <span class="filter-label">Winter</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-season="winter">
+                    <span class="filter-label">Winter</span>
+                  </p>
+                <% }%>
+              </div>
+            </div>
+          <% } %>
+          <% if (showLinks.price === true) { %>
+          <div class="filter-wrapper">
+            <span class="filter-title">Price</span>
+            <div class="filter-list price-list">
+              <a class="filter-link" data-price="cheap">
+                <p class="filter-label">Cheap < $300</p>
+              </a>
+              <a class="filter-link" data-price="expensive">
+                <p class="filter-label">Expensive $300-700</p>
+              </a>
+              <a class="filter-link" data-price="luxury">
+                <p class="filter-label">Luxury > $700</p>
+              </a>
+            </div>
+          </div>
+          <% } else { %>
+            <div class="filter-wrapper">
+              <span class="filter-title">Price</span>
+              <div class="filter-list price-list">
+                <% if (active.includes('cheap')) { %>
+                <p class="filter-link active" data-price="cheap">
+                  <span class="filter-label">Cheap < $300</span>
+                </a>
+                <% } else { %>
+                  <p class="filter-link" data-price="cheap">
+                    <span class="filter-label">Cheap < $300</span>
+                  </a>
+                <% } %>
+                <% if (active.includes('expensive')) { %>
+                <p class="filter-link active" data-price="expensive">
+                  <span class="filter-label">Expensive $300-700</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-price="expensive">
+                    <span class="filter-label">Expensive $300-700</span>
+                  </p>
+                <% } %>
+                <% if (active.includes('luxury')) { %>
+                <p class="filter-link active" data-price="luxury">
+                  <span class="filter-label">Luxury > $700</span>
+                </p>
+                <% } else { %>
+                  <p class="filter-link" data-price="luxury">
+                    <span class="filter-label">Luxury > $700</span>
+                  </p>
+                <% } %>
+              </div>
+            </div>
+          <% } %>
+          <button type ="submit" class="btn btn-purchase" id='filterForm'>filter</button>
+        </form>
+        </aside>
+        <%- include('../partials/products') %>
+      </div>
+    </section>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+<script src="/js/main.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>

@@ -1,0 +1,71 @@
+        <section class="products">
+          <div class="container">
+            <div class="row products-action-row">
+              <div class="col-7">
+                <h2><%= titleProducts %></h2>
+              </div>
+              <div class="col-5">
+                <div class="products-actions">
+                  <a href="#" class="btn-filter">Feature</a>
+                  <a href="#" class="btn-filter">Latest</a>
+                  <a href="#" class="btn-filter">Bestseller</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col filter-mark">
+                <% active.forEach(el => { %>
+                  <button type="button" class="btn-mark" data-mark="<%= el %>">
+                    <span><%= el %></span>
+                    <span class="button-close"></span>
+                  </button>
+                <% }) %>
+              </div>
+            </div>
+            <% for (let i = 0; i < products.length; i++) {%>
+            <div class="row products-row">
+              <% for (let k = 0; k < products[i].length; k++ ) {%>
+                <div class="col-3 product-col">
+                  <div class="product-wrapper">
+                    <div class="product-image">
+                      <a href="/products/<%= products[i][k]._id %>">
+                        <img src="<%= products[i][k].image[0] %>" alt="">
+                      </a>
+                    </div>
+                    <div class="product-purchase">
+                      <div class="product-rating">
+                        <div class="stars">
+                          <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                          <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                          <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                          <img src="/img/icons/Star.svg" alt="" class="icon">
+                          <img src="/img/icons/Star.svg" alt="" class="icon">
+                        </div>
+                        <a href="/products/<%= products[i][k]._id %>" class="product-title">
+                          <span>
+                            <%= products[i][k].name %>
+                          </span>
+                        </a>
+                        <div class="product-price">
+                          <span>$</span>
+                          <span><%= products[i][k].price %></span>
+                        </div>
+                      </div>
+                      <div class="product-amount">
+                        <% if (products[i][k].amount < 100) { %>
+                          <span class="amount-warning">Fruits are running out</span>
+                          <% } %> 
+                      </d>
+                    </div>
+                      <button class="btn btn-purchase">
+                        <img src="/img/icons/basket.png" class="icon" alt="">
+                        <span>Basket</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+          </div>
+        </section>

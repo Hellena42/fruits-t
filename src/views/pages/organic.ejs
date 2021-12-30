@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main class="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form action="/organic" method="post" class="add-item-form">
+            <input type="text" placeholder="название" name='name'>
+            <input type="text" placeholder="заголовок" name='title'>
+            <input type="text" placeholder="количество" name='amount'>
+            <label> В наличии/отсутствует: <input type="checkbox" name="available"></label>
+            <button type="submit">Добавить</button> 
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col data-column">
+          <% data.forEach(el => { %>
+          <div class="block">
+            <span>Id: <%= el._id %></span>
+            <div class="block-info">
+              <p>Title: <span><%= el.title %></span></p>
+              <p>Name: <span><%= el.name %></span></p>
+              <p>Number: <span><%= el.number %></span></p>
+              <p>Flag: <span><%= el.flag %></span></p>
+              <button type="button" class="btn btn-sm" onclick="deleteItem('<%= el._id %>')">Удалить</button>
+            </div>
+          </div>
+        <% }) %>
+        </div>
+      </div>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+
+<script src="/js/main.js"></script>
+</html>

@@ -1,0 +1,42 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add user</h5>
+                <button type="button" class="close" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/elementum" method="post" id="form-add-user" class="form">
+                    <div class="f-row">
+                        <label for="name">Add name</label>
+                        <input id="name" type="text" placeholder="Add name" name="name">
+                    </div>
+                    <div class="f-row">
+                        <label for="username">Add username</label>
+                        <input id="username" type="text" placeholder="Add username" name="username">
+                    </div>
+                    <div class="f-row">
+                        <label for="email">Add email</label>
+                        <input id="email" type="email" placeholder="Add email" name="email">
+                    </div>
+                    <div class="f-row">
+                        <label for="phone">Add phone</label>
+                        <input id="phone" type="tel" placeholder="Add phone" name="phone">
+                    </div>
+                        <button type="submit" class="btn modal-btn">Save changes</button>
+                </form>
+                <% if (typeof errors != 'undefined') { %>
+                    <% errors.forEach(function(err) { %>
+                        <section class="errors">
+                            <%= err.msg %>
+                        </section>
+                    <% }) %>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main class="main-content">
+      <section class="product-detail">
+        <div class="container">
+          <div class="row">  
+            <div class="col">
+              <div class="product-wrapper">
+                <div class="product-image">
+                  <div class="product-image-top">
+                    <img src="<%= products.image[0] %>" alt="">
+                  </div>
+                    <div class="images-sm">
+                      <img src="<%= products.image[1] %>" alt="">
+                      <img src="<%= products.image[2] %>" alt="">
+                      <img src="<%= products.image[3] %>" alt="">
+                    </div>
+                </div>
+                <div class="product-purchase">
+                  <div class="product-rating">
+                    <div class="stars">
+                      <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                      <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                      <img src="/img/icons/Gold_Star.svg" alt="" class="icon">
+                      <img src="/img/icons/Star.svg" alt="" class="icon">
+                      <img src="/img/icons/Star.svg" alt="" class="icon">
+                    </div>
+                    <h1 href="/products/<%= products._id %>" class="product-title"><%= products.name %></h1>
+                    <div class="product-price">
+                      <span>Price: </span>
+                      <span>$</span>
+                      <span><%= products.price %></span>
+                    </div>
+                  </div>
+                  <p class="product-description">
+                    <%= products.description %>
+                  </p>
+                  <button class="btn btn-purchase">
+                    <img src="/img/icons/basket.png" class="icon" alt="">
+                    <span>Basket</span>
+                  </button>
+                  <div class="product-amount">
+                    <span>Amount: <span><%= products.amount %></span></span>
+                    <% if (products.amount < 100) { %>
+                      <span class="amount-warning">Fruits are running out</span>
+                      <% } %> 
+                  </d>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+    </main>
+  <%- include('../partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main class="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col col-user-align">
+          <button type="button" class="btn btn-purchase" id="addUser" onclick="openModal()">Add User</button>
+        </div>
+      </div>
+      <% for (let i = 0; i < data.length; i++) {%>
+      <div class="row products-row">
+        <% for (let k = 0; k < data[i].length; k++) { %>
+          <div class="col-3 product-col">
+            <div class="product-wrapper">
+              <div class="user-info">
+                <h2>User info</h2>
+                <ul>
+                  <li>Id: <%= data[i][k].id %></li>
+                  <li>Name: <%= data[i][k].name %></li>
+                  <li>Username: <%= data[i][k].username %></li>
+                </ul>
+              </div>
+              <div class="user-contacts">
+                <h3>Contacts</h3>
+                <ul>
+                  <li>Email: <%= data[i][k].email %></li>
+                  <li>Phone: <%= data[i][k].phone %></li>
+                  <li>Website: <%= data[i][k].website %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <% } %>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+<%- include('../partials/modals/modal-user') %>
+<script src="/js/main.js"></script>
+</html>
